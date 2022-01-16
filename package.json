@@ -9,7 +9,10 @@
     "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files --no-copy-ignored"
   },
   "dependencies": {
-    "express": "^4.17.2"
+    "express": "^4.17.2",
+    "pg": "^8.7.1",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.2.41"
   },
   "devDependencies": {
     "@babel/cli": "^7.16.8",
