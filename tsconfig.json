@@ -3,14 +3,16 @@
     "target": "es2017",
     "lib": ["ES6"],
     "experimentalDecorators": true,
+    "resolveJsonModule": true,
     "emitDecoratorMetadata": true,
     "module": "commonjs",
-    "rootDir": "./src",
+    "rootDir": "./",
     "typeRoots": [
       "./node_modules/@types",
       "./src/@types"
     ],
-    "baseUrl": ".",
+    "baseUrl": "./src",
+    "paths": {},
     "allowJs": true,
     "sourceMap": true,
     "outDir": "./dist",
