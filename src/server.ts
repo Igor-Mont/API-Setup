@@ -3,6 +3,8 @@ import "express-async-errors";
 import express from "express";
 
 import { ConnectionDB } from "./database";
+import "@shared/container";
+
 import { routes } from "./routes";
 import { asyncErrors } from "@shared/middlewares/asyncErrors";
 
