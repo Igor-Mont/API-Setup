@@ -12,7 +12,10 @@
       "./src/@types"
     ],
     "baseUrl": "./src",
-    "paths": {},
+    "paths": {
+      "@modules/*": ["modules/*"],
+      "@shared/*": ["shared/*"]
+    },
     "allowJs": true,
     "sourceMap": true,
     "outDir": "./dist",

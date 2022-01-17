@@ -1,5 +1,5 @@
-import { ICreateUserDTO } from "modules/users/dtos/ICreateUserDTO";
-import { IUsersRepository } from "modules/users/repositories/IUsersRepository";
+import { ICreateUserDTO } from "@modules/users/dtos/ICreateUserDTO";
+import { IUsersRepository } from "@modules/users/repositories/IUsersRepository";
 import { inject, injectable } from "tsyringe";
 
 @injectable()
