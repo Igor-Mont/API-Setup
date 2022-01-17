@@ -25,6 +25,11 @@ export class CreateUsersTable1642426921102 implements MigrationInterface {
               type: "varchar",
             },
             {
+              name: "isAdmin",
+              type: "boolean",
+              default: false
+            },
+            {
               name: "avatar_url",
               type: "varchar",
               isNullable: true
