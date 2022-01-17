@@ -4,9 +4,9 @@ import express from "express";
 
 import "@shared/container";
 
-import { asyncErrors } from "@shared/http/middlewares/asyncErrors";
-import { ConnectionDB } from "database";
-import { routes } from "routes";
+import { asyncErrors } from "@shared/infra/http/middlewares/asyncErrors";
+import { ConnectionDB } from "@shared/infra/typeorm";
+import { routes } from "@shared/infra/http/routes";
 
 ConnectionDB();
 

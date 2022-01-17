@@ -1,4 +1,4 @@
-import { AppError } from "@shared/http/errors/AppError";
+import { AppError } from "@shared/infra/http/errors/AppError";
 import { NextFunction, Request, Response } from "express";
 
 async function asyncErrors(err: Error, request: Request, response: Response, next: NextFunction) {
