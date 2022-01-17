@@ -25,4 +25,21 @@ describe("Create an user", () => {
     expect(users.length).toEqual(1);
     expect(users[0]).toHaveProperty("id");
   });
+
+  it("should not be able create a users with email already existent", async () => {
+    await usersRepositoryInMemory.create({
+      email: "user1@test.com",
+      name: "User 1",
+      password: "Pass 1"
+    });
+    expect(async () => {
+      await usersRepositoryInMemory.create({
+        email: "user1@test.com",
+        name: "User 2",
+        password: "Pass 2"
+      });
+    }).rejects.toBeInstanceOf(AppError);
+    
+  });
+
 });
