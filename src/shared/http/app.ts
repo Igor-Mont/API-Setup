@@ -2,11 +2,11 @@ import "reflect-metadata";
 import "express-async-errors";
 import express from "express";
 
-import { ConnectionDB } from "./database";
 import "@shared/container";
 
-import { routes } from "./routes";
-import { asyncErrors } from "@shared/middlewares/asyncErrors";
+import { asyncErrors } from "@shared/http/middlewares/asyncErrors";
+import { ConnectionDB } from "database";
+import { routes } from "routes";
 
 ConnectionDB();
 
@@ -18,4 +18,4 @@ app.use(routes);
 
 app.use(asyncErrors);
 
-app.listen(3131, () => console.log("Server is running on port 3131 🔥"));
+export { app };
