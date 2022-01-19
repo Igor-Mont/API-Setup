@@ -1,4 +1,0 @@
-
-
-describe("Reset password user", () => {
-});

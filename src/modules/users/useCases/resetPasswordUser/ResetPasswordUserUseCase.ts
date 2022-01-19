@@ -25,7 +25,6 @@ class ResetPasswordUserUseCase {
       const user = await this.usersRepository.findById(user_id);
 
       user.password = await hash(password, 10);
-      // user.password = password;
 
       await this.usersRepository.save(user);
 
