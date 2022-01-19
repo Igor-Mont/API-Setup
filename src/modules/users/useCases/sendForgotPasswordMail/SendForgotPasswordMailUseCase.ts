@@ -1,9 +1,10 @@
+import { inject, injectable } from "tsyringe";
+import { sign } from "jsonwebtoken";
 import { resolve } from "path";
 import { IUsersRepository } from "@modules/users/repositories/IUsersRepository";
 import { IMailProvider } from "@shared/container/providers/MailProvider/IMailProvider";
 import { AppError } from "@shared/infra/http/errors/AppError";
-import { inject, injectable } from "tsyringe";
-import { sign } from "jsonwebtoken";
+import auth from "config/auth";
 
 @injectable()
 class SendForgotPasswordMailUseCase {
@@ -21,7 +22,7 @@ class SendForgotPasswordMailUseCase {
 
     if(!user) throw new AppError("User does not exists!");
 
-    const tokenRecovery = sign({ id: user.id }, "6ccf929934691710135f3f0df7cc43c5", {
+    const tokenRecovery = sign({ id: user.id }, auth.secret_token_recovery, {
       expiresIn: "5m"
     });
 
