@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>API (??) ainda estou pensando oq vou fazer 💹</h1>
+  <h1>API (??)💹</h1>
 </div>
 
 <h2 align="center" >Aprimorando o conhecimento!</h2>
