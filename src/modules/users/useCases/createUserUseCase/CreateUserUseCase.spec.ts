@@ -1,6 +1,6 @@
+import { ICreateUserDTO } from "@modules/users/dtos/ICreateUserDTO";
+import { UsersRepositoryInMemory } from "@modules/users/repositories/in-memory/UsersRepositoryInMemory";
 import { AppError } from "@shared/infra/http/errors/AppError";
-import { ICreateUserDTO } from "../../dtos/ICreateUserDTO";
-import { UsersRepositoryInMemory } from "../../repositories/in-memory/UsersRepositoryInMemory";
 import { CreateUserUseCase } from "./CreateUserUseCase";
 
 let usersRepositoryInMemory: UsersRepositoryInMemory;
