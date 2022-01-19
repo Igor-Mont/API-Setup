@@ -1,4 +1,5 @@
 import "reflect-metadata";
+import "dotenv";
 import "express-async-errors";
 import express from "express";
 
