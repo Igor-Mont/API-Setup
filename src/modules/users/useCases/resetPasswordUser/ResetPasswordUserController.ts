@@ -1,4 +1,4 @@
-import { Request, response, Response } from "express";
+import { Request, Response } from "express";
 import { container } from "tsyringe";
 import { ResetPasswordUserUseCase } from "./ResetPasswordUserUseCase";
 

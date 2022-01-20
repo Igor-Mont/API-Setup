@@ -14,7 +14,8 @@
     "baseUrl": "./src",
     "paths": {
       "@modules/*": ["modules/*"],
-      "@shared/*": ["shared/*"]
+      "@shared/*": ["shared/*"],
+      "@config": ["config/*"]
     },
     "allowJs": true,
     "sourceMap": true,

@@ -15,6 +15,7 @@ module.exports = {
       alias: {
         '@modules': './src/modules',
         '@shared': './src/shared',
+        '@config': './src/config'
       }
     }]
   ],

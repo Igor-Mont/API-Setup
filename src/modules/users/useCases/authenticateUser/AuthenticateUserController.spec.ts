@@ -2,7 +2,6 @@ import request from "supertest";
 import { app } from "@shared/infra/http/app";
 import { ConnectionDB } from "@shared/infra/typeorm";
 import { Connection } from "typeorm";
-import { CreateUserUseCase } from "../createUser/CreateUserUseCase";
 import { v4 as uuidV4 } from "uuid";
 import { hash } from "bcrypt";
 

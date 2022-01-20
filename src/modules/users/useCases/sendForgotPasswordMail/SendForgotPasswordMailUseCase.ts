@@ -1,17 +1,17 @@
 import { inject, injectable } from "tsyringe";
 import { sign } from "jsonwebtoken";
 import { resolve } from "path";
+import auth from "../../../../config/auth";
 import { IUsersRepository } from "@modules/users/repositories/IUsersRepository";
 import { IMailProvider } from "@shared/container/providers/MailProvider/IMailProvider";
 import { AppError } from "@shared/infra/http/errors/AppError";
-import auth from "config/auth";
 
 @injectable()
 class SendForgotPasswordMailUseCase {
   constructor(
     @inject("UsersRepository")
     private usersRepository: IUsersRepository,
-    @inject("EtheralMailProvider")
+    @inject("EtherealMailProvider")
     private mailProvider: IMailProvider
   ) {}
   
