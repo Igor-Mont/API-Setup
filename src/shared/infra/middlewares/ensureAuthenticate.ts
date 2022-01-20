@@ -7,7 +7,7 @@ interface ITokenPayload {
   id: string;
 }
 
-async function ensureAuthtenticate(request: Request, response: Response, next: NextFunction) {
+async function ensureAuthenticate(request: Request, response: Response, next: NextFunction) {
   const { authorization } = request.headers;
 
   if(!authorization) throw new AppError("Token missing!", 401);
@@ -26,4 +26,4 @@ async function ensureAuthtenticate(request: Request, response: Response, next: N
   }
 }
 
-export { ensureAuthtenticate };
+export { ensureAuthenticate };
