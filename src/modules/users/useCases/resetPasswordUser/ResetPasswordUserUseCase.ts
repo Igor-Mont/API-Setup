@@ -1,3 +1,5 @@
+import { User } from "@modules/users/infra/typeorm/entities/User";
+import auth from "../../../../config/auth";
 import { IUsersRepository } from "@modules/users/repositories/IUsersRepository";
 import { AppError } from "@shared/infra/http/errors/AppError";
 import { hash } from "bcrypt";
@@ -18,10 +20,10 @@ class ResetPasswordUserUseCase {
     private usersRepository: IUsersRepository
   ) {}
 
-  async execute(token: string, password: string) {
+  async execute(token: string, password: string): Promise<User> {
     
     try {
-      const { id: user_id } = verify(token, "6ccf929934691710135f3f0df7cc43c5") as IPayload;
+      const { id: user_id } = verify(token, auth.secret_token_recovery) as IPayload;
       const user = await this.usersRepository.findById(user_id);
 
       user.password = await hash(password, 10);

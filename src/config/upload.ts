@@ -3,7 +3,6 @@ import { randomBytes } from "crypto";
 import { resolve } from "path";
 
 const tmpFolder = resolve(__dirname, "..", "..", "tmp");
-console.log('pwd tmp', tmpFolder);
 
 export default {
   tmpFolder,
