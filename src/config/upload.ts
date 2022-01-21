@@ -3,6 +3,7 @@ import { randomBytes } from "crypto";
 import { resolve } from "path";
 
 const tmpFolder = resolve(__dirname, "..", "..", "tmp");
+console.log('pwd tmp', tmpFolder);
 
 export default {
   tmpFolder,
@@ -10,11 +11,9 @@ export default {
     destination: tmpFolder,
     filename: (req, file, callback) => {
       const fileHash = randomBytes(16).toString("hex");
-      console.log(fileHash);
       const fileName = `${fileHash}-${file.originalname}`
-      console.log(fileName);
 
       return callback(null, fileName);
-    }
+      }
   })
 }

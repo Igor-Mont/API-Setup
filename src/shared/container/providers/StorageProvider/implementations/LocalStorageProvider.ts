@@ -8,12 +8,15 @@ const tmpFolder = uploadConfig.tmpFolder;
 class LocalStorageProvider implements IStorageProvider {
 
   async save(file: string, folder: string): Promise<string> {
-    await fs.promises.rename(
+    // console.log("pwd file",resolve(tmpFolder, file));
+    // console.log("pwd folder",resolve(tmpFolder, folder, file));
+
+    fs.rename(
       resolve(tmpFolder, file),
-      resolve(`${tmpFolder}/${folder}`, file)
+      resolve(tmpFolder, folder, file),
+      () => {}
     );
 
-    console.log("save", file)
 
     return file;
   }
