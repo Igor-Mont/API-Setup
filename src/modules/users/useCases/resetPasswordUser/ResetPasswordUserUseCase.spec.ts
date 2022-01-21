@@ -24,6 +24,7 @@ describe("Reset password user", () => {
   it("should be able reset password", async () => { 
     const userTest: ICreateUserDTO = {
       name: "User test",
+      username: "Username",
       email: "user@test.com",
       password: "123"
     };
@@ -44,6 +45,7 @@ describe("Reset password user", () => {
   it("should not be able reset password with token invalid", async () => {
     const userTest: ICreateUserDTO = {
       name: "User test",
+      username: "User name",
       email: "user@test.com",
       password: "123"
     };

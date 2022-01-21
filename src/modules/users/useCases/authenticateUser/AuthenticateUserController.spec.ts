@@ -16,8 +16,8 @@ describe("Authenticate User Controller", () => {
     const hashPassword = hash("pass", 10);
 
     await connection.query(
-      `INSERT INTO USERS(id, name, email, password, "isAdmin", created_at)
-        values('${id}', 'user', 'user@test.com.br', '${hashPassword}', false, 'now()')`
+      `INSERT INTO USERS(id, name, username, email, password, "isAdmin", created_at)
+        values('${id}', 'user test', 'user', 'user@test.com.br', '${hashPassword}', false, 'now()')`
     );
   });
 

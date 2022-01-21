@@ -15,6 +15,7 @@ describe("Create a new user", () => {
   it("should be able create a new user", async () => {
     const user: ICreateUserDTO = {
       email: "create@user.com",
+      username: "User name",
       name: "New User",
       password: "New Password"
     };
@@ -30,6 +31,7 @@ describe("Create a new user", () => {
   it("should not be able create a users with email already existent", async () => {
     await usersRepositoryInMemory.create({
       name: "User 1",
+      username: "User name",
       email: "user@test.com",
       password: "Pass 1"
     });
@@ -37,6 +39,7 @@ describe("Create a new user", () => {
     await expect(
       createUserUseCase.execute({
         name: "User 2",
+        username: "UserN",
         email: "user@test.com",
         password: "Pass 2"
     })).rejects.toEqual(new AppError("User already exists!", 409));

@@ -19,6 +19,7 @@ describe("Authenticate User", () => {
   it("should be able authenticate the user", async () => {
     const user: ICreateUserDTO = {
       name: "Authenticate User",
+      username: "User name",
       email: "auth@user.com",
       password: "123"
     };
@@ -37,6 +38,7 @@ describe("Authenticate User", () => {
   it("should not be able authenticate user with nonexistent email", async () => {
     const user: ICreateUserDTO = {
       name: "Authenticate User",
+      username: "UserT",
       email: "auth@user.com",
       password: "123"
     };
@@ -54,6 +56,7 @@ describe("Authenticate User", () => {
   it("should not be able authenticate user with inconsistent password", async () => {
     const user: ICreateUserDTO = {
       name: "Authenticate User",
+      username: "User",
       email: "auth@user.com",
       password: "123"
     };

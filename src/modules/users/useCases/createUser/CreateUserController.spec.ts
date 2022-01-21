@@ -20,6 +20,7 @@ describe("Create User Controller", () => {
   it("Create user controller", async () => {
     const response = await request(app).post("/users").send({
       name: "User Test",
+      username: "User name",
       email: "user@test.com",
       password: "Pass user"
     });

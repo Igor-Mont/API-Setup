@@ -20,6 +20,7 @@ describe("Send forgot password mail", () => {
   it("should be able send a forgot password mail to user, calling sendMail", async () => {
     await usersRepositoryInMemory.create({
       name: "Forgot Pass",
+      username: "User name",
       email: "forgot@pass.com",
       password: "123"
     });
