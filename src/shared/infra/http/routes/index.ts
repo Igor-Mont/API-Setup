@@ -5,8 +5,8 @@ import { CreateUserController } from "@modules/users/useCases/createUser/CreateU
 import { ResetPasswordUserController } from "@modules/users/useCases/resetPasswordUser/ResetPasswordUserController";
 import { SendForgotPasswordMailController } from "@modules/users/useCases/sendForgotPasswordMail/SendForgotPasswordMailController";
 import uploadConfig from "../../../../config/upload";
-import { ensureAuthenticate } from "@shared/infra/middlewares/ensureAuthenticate";
 import { UpdateUserAvatarController } from "@modules/users/useCases/updateUserAvatar/UpdateUserAvatarController";
+import { ensureAuthenticate } from "../middlewares/ensureAuthenticate";
 
 const createUserController = new CreateUserController();
 const authenticateUserController = new AuthenticateUserController();
