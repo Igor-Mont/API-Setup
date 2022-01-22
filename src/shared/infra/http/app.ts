@@ -7,7 +7,7 @@ import "@shared/container";
 
 import { asyncErrors } from "@shared/infra/http/middlewares/asyncErrors";
 import { ConnectionDB } from "@shared/infra/typeorm";
-import { routes } from "@shared/infra/http/routes";
+import { router } from "@shared/infra/http/routes";
 
 ConnectionDB();
 
@@ -15,7 +15,7 @@ const app = express();
 
 app.use(express.json());
 
-app.use(routes);
+app.use(router);
 
 app.use(asyncErrors);
 
