@@ -1,4 +1,5 @@
 import { IUsersRepository } from "@modules/users/repositories/IUsersRepository";
+import { S3StorageProvider } from "@shared/container/providers/StorageProvider/implementations/S3StorageProvider";
 import { IStorageProvider } from "@shared/container/providers/StorageProvider/IStorageProvider";
 import { inject, injectable } from "tsyringe";
 
@@ -20,13 +21,22 @@ class UpdateUserAvatarUseCase {
   async execute({ avatar_file, user_id }: IRequest): Promise<void> {
     const user = await this.usersRepository.findById(user_id);
 
-    if(user.avatar_url) {
-      await this.storageProvider.delete(user.avatar_url, "avatar");
+    const s3_avatar_url = await this.storageProvider.save(avatar_file, "avatar");
+
+    if(!user.avatar_url) {
+      user.avatar_url = s3_avatar_url;
+
+      this.usersRepository.save(user);
     }
 
-    await this.storageProvider.save(avatar_file, "avatar");
+    const last = user.avatar_url.lastIndexOf("/");
+    const lengthURL = user.avatar_url.length;
+    const fileURL = user.avatar_url.toString().slice(last + 1, lengthURL );
+    const file = user.avatar_url.includes("https") ? fileURL : avatar_file
 
-    user.avatar_url = avatar_file;
+    await this.storageProvider.delete(file, "avatar");
+
+    user.avatar_url = s3_avatar_url.includes("https") ? s3_avatar_url : avatar_file;
 
     await this.usersRepository.save(user);
   }

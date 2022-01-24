@@ -29,9 +29,12 @@ class S3StorageProvider implements IStorageProvider {
       ContentType
     }).promise();
 
+    const avatar_url = `https://${process.env.AWS_BUCKET_NAME}.s3-${process.env.AWS_DEFAULT_REGION}.amazonaws.com/${folder}/${file}`;
+
+    console.log("deleted",originalName);
     await fs.promises.unlink(originalName);
 
-    return file;
+    return avatar_url;
   }
   
   async delete(file: string, folder: string): Promise<void> {
