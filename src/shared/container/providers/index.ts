@@ -4,6 +4,5 @@ import { EtherealMailProvider } from "./MailProvider/implementations/EtherealMai
 import { LocalStorageProvider } from "./StorageProvider/implementations/LocalStorageProvider";
 import { IStorageProvider } from "./StorageProvider/IStorageProvider";
 
-// container.registerSingleton<IMailProvider>("EtheralMailProvider", EtherealMailProvider);
 container.registerInstance<IMailProvider>("EtherealMailProvider", new EtherealMailProvider());
 container.registerSingleton<IStorageProvider>("LocalStorageProvider", LocalStorageProvider);
