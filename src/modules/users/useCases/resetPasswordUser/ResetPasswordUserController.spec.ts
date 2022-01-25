@@ -47,10 +47,6 @@ describe("Reset Password Controller", () => {
   });
   
   it("should not be able reset password user with token expired or invalid", async () => {
-    const tokenRecovery = sign({ id }, auth.secret_token_recovery, {
-      expiresIn: "5m"
-    });
-
     const response = await request(app).patch(`/password/reset`).send({
       password: "321"
     });

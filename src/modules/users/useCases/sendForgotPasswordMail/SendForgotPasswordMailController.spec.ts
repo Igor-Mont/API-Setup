@@ -27,9 +27,20 @@ describe("Send forgot password mail controller", () => {
     await connection.close();
   });
 
-  it("should be able send mail", async () => {
-    const response = await request(app).post("/password/forgot").send("user@test.com.br");
+  it("should not be able send mail with user non existent", async () => {
+    const response = await request(app).post("/password/forgot").send({
+      email: "user@invalid.com.br"
+    });
 
-    expect(response.status).toBe(200);
+    expect(response.status).toBe(404);
+  });
+  
+  it("should be able send mail", async () => {
+    // try this
+    // const response = await request(app).post("/password/forgot").send({
+    //   email: "user@test.com.br"
+    // });
+
+    // expect(response.status).toBe(200);
   });
 });

@@ -20,7 +20,7 @@ class SendForgotPasswordMailUseCase {
 
     const templatePath = resolve(__dirname, "..", "..", "views", "email", "forgotPassword.hbs");
 
-    if(!user) throw new AppError("User does not exists!");
+    if(!user) throw new AppError("User does not exists!", 404);
 
     const tokenRecovery = sign({ id: user.id }, auth.secret_token_recovery, {
       expiresIn: "5m"
@@ -28,7 +28,7 @@ class SendForgotPasswordMailUseCase {
 
     const variables = {
       name: user.name,
-      link: `http://localhost:3131/reset?token=${tokenRecovery}`
+      link: `http://localhost:3131/password/reset?token=${tokenRecovery}`
     }
 
     await this.mailProvider.sendMail(
