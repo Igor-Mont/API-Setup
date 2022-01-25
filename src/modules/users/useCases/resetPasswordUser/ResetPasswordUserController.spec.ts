@@ -56,5 +56,6 @@ describe("Reset Password Controller", () => {
     });
 
     expect(response.body).toHaveProperty("message");
+    expect(response.status).toEqual(401);
   });
 });
