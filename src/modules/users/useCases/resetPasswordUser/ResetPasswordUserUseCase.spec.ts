@@ -58,7 +58,7 @@ describe("Reset password user", () => {
 
     await expect(
       resetPasswordUserUseCase.execute(tokenTest, "321")
-    ).rejects.toEqual(new AppError("Invalid Token", 401));
+    ).rejects.toEqual(new AppError("Time to reset expired!", 401));
   });
 
 

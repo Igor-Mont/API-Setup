@@ -32,7 +32,7 @@ class ResetPasswordUserUseCase {
 
       return user;
     } catch (error) {
-      throw new AppError("Invalid Token", 401);
+      throw new AppError("Time to reset expired!", 401);
     }
   }
 }
