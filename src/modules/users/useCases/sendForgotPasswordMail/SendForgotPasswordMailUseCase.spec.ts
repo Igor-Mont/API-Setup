@@ -35,7 +35,7 @@ describe("Send forgot password mail", () => {
   it("should note be able send a forgot password mail to user inexistent", async () => {
     await expect(
       sendForgotMailPasswordUseCase.execute("nonexistent@email.com")
-    ).rejects.toEqual(new AppError("User does not exists!"));
+    ).rejects.toEqual(new AppError("User does not exists!", 404));
   });
 
 });

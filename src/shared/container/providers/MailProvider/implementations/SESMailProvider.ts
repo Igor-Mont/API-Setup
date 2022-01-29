@@ -8,8 +8,7 @@ class SESMailProvider implements IMailProvider {
 
   constructor() {
     this.client = new SES({
-      region: 'us-east-1'
-      // region: process.env.AWS_DEFAULT_REGION
+      region: process.env.AWS_DEFAULT_REGION
     });
   }
 
@@ -20,7 +19,7 @@ class SESMailProvider implements IMailProvider {
 
     const templateHTML = templateParse(variables);
 
-    await this.client.sendEmail({
+    this.client.sendEmail({
       Source: 'Igor Nathan Monteiro Santos <igornathan717@gmail.com>',
       Destination: {
         ToAddresses: [
@@ -33,7 +32,7 @@ class SESMailProvider implements IMailProvider {
         },
         Body: {
           Html: {
-            Data: templateHTML
+            Data: templateHTML,
           },
           Text: {
             Data: "Envio feito com sucesso",
