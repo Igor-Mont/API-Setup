@@ -11,7 +11,8 @@ class SendForgotPasswordMailUseCase {
   constructor(
     @inject("UsersRepository")
     private usersRepository: IUsersRepository,
-    @inject("EtherealMailProvider")
+    // @inject("EtherealMailProvider")
+    @inject("SESMailProvider")
     private mailProvider: IMailProvider
   ) {}
   
