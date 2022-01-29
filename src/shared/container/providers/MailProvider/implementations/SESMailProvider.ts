@@ -20,7 +20,7 @@ class SESMailProvider implements IMailProvider {
 
     const templateHTML = templateParse(variables);
 
-    this.client.sendEmail({
+    await this.client.sendEmail({
       Source: 'Igor Nathan Monteiro Santos <igornathan717@gmail.com>',
       Destination: {
         ToAddresses: [
@@ -41,7 +41,7 @@ class SESMailProvider implements IMailProvider {
         }
       },
       ConfigurationSetName: "Nathan"
-    }, () => console.log('test')).promise();
+    }, () => console.log('Send mail!'));
   }
 }
 

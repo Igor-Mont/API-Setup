@@ -11,7 +11,7 @@ const sendMail = {
   etheral: EtherealMailProvider
 }
 
-container.registerInstance<IMailProvider>("SESMailProvider", new sendMail[process.env.mail]());
+container.registerSingleton<IMailProvider>("MailProvider", sendMail[process.env.mail]);
 
 const diskStorage = {
   local: LocalStorageProvider,
